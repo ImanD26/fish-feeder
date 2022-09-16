@@ -1,6 +1,6 @@
 #include <Wire.h>
 #include <ESP32Servo.h>
-#define servoPin 18
+#define servoPin 19
 Servo servo;
 const int I2C_ADDRESS = 0x68;
 
@@ -34,7 +34,7 @@ void loop(){
   delay(1000);
   
  if (feedHour==hour && feedMinute==minute && feedSecond==second) {
-    servo.write(90);
+    servo.write(180);
     delay(2000);
   }
  else {
