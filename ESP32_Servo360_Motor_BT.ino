@@ -2,8 +2,8 @@
 
 static const int servo1Pin = 19;
 
-int motorPin1 = 26; 
-int motorPin2 = 27; 
+int motorPin1 = 4; 
+int motorPin2 = 2; 
 int enablePin = 14; 
 
 Servo_ESP32 servo1;
@@ -51,7 +51,7 @@ void loop() {
       servo1.write(0);//move servo to that angle
       analogWrite(enablePin, 255);
       digitalWrite(motorPin1, HIGH);
-      digitalWrite(motorPin2, LOWH );  
+      digitalWrite(motorPin2, LOW);  
     }
 
     else if(servo1Angle == 90)
