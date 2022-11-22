@@ -9,7 +9,7 @@ int enablePin = 14;
 Servo_ESP32 servo1;
 int servo1Angle;
 
-#include "BluetoothSerial.h"
+#include "BluetoothSerial.h" // command enable bluetooth esp32
 #if !defined(CONFIG_BT_ENABLED) || !defined(CONFIG_BLUEDROID_ENABLED)
 #error Bluetooth is not enabled! Please run `make menuconfig` to and enable it
 #endif
@@ -48,7 +48,7 @@ void loop() {
     
     if(servo1Angle == 0)
     {
-      servo1.write(0);//move servo to that angle
+      servo1.write(0);//move servo to that angle (on)
       analogWrite(enablePin, 255);
       digitalWrite(motorPin1, HIGH);
       digitalWrite(motorPin2, LOW);  
@@ -56,7 +56,7 @@ void loop() {
 
     else if(servo1Angle == 90)
     {
-      servo1.write(90);//move servo to that angle  
+      servo1.write(90);//move servo to that angle (off)
       analogWrite(enablePin, 0);
       digitalWrite(motorPin1, LOW);
       digitalWrite(motorPin2, LOW); 
