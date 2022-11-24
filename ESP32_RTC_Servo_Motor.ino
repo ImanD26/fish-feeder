@@ -1,3 +1,4 @@
+//kode tes menggunakan RTC
 #include <Wire.h>
 #include <Servo_ESP32.h>
 
@@ -58,6 +59,7 @@ void loop(){
  }
 }
 void printTime() {
+  //print waktu di serial monitor
   char buffer[3];
   const char* AMPM = 0;
   readTime();
@@ -95,15 +97,15 @@ void readTime() {
   
 }
 void changeTime() {
-
+  ///ubah waktu RTC
   Wire.beginTransmission(I2C_ADDRESS);
   Wire.write(byte(0));
-  Wire.write(decToBcd(49)); // second
+  Wire.write(decToBcd(55)); // second
   Wire.write(decToBcd(30)); // minute
   Wire.write(decToBcd(13)); // hour
-  Wire.write(decToBcd(5));  // weekday
-  Wire.write(decToBcd(25)); // date
-  Wire.write(decToBcd(8));  // month
+  Wire.write(decToBcd(7));  // weekday
+  Wire.write(decToBcd(1)); // date
+  Wire.write(decToBcd(1);  // month
   Wire.write(decToBcd(22)); // year
   Wire.write(byte(0));
   Wire.endTransmission();
