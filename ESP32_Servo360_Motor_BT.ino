@@ -1,3 +1,4 @@
+//kode tes menggunakan bluetooth
 #include <Servo_ESP32.h>
 
 static const int servo1Pin = 19;
