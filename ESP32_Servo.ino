@@ -1,6 +1,7 @@
+//kontrol servo dengan bluetooth
 #include <Servo_ESP32.h>
 
-static const int servo1Pin = 19; //printed G19 on the board
+static const int servo1Pin = 19;
 
 Servo_ESP32 servo1;
 
@@ -29,7 +30,7 @@ void setup() {
 
 void loop() {
 
-  //Robojax.com Servo with ESP32 Bluetooth
+
   if (Serial.available()) {
     SerialBT.write(Serial.read());
   
@@ -53,10 +54,10 @@ void loop() {
     }
            inData = ""; // Clear recieved buffer                    
                   
-        }//if (receivedChar
+        }
 
 
-  }// while
+  }
 
         //Serial.println(servo1Angle);
         delay(20);
