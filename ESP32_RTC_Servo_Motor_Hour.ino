@@ -1,3 +1,4 @@
+//kode test RTC per jam
 #include <Wire.h>
 #include <Servo_ESP32.h>
 
