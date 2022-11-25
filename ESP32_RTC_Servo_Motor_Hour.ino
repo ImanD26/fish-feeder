@@ -45,12 +45,12 @@ void loop(){
   printTime();
   delay(1000);
   
- if (feedHour==hour && feedMinute==minute && feedSecond==second || feedHour+i==hour+i && feedMinute==minute && feedSecond==second) {
+ if (feedHour==hour && feedMinute==minute && feedSecond==second || feedHour+i==hour && feedMinute==minute && feedSecond==second) {
       servo1.write(0);//move servo to that angle
       analogWrite(enablePin, 255);
       digitalWrite(motorPin1, HIGH);
       digitalWrite(motorPin2, LOW);
-      delay(1000); 
+      delay(1000);
       i++;
   }
  if(i==23){
