@@ -29,7 +29,7 @@ int motorPin2 = 2;
 int enablePin = 14; 
 
 void setup(){
-  Wire.begin(25,26);
+  Wire.begin(26,25);
   Serial.begin(9600);
   changeTime();
   servo1.attach(servo1Pin);
