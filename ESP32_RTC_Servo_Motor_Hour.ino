@@ -38,13 +38,14 @@ void setup(){
   pinMode(motorPin1, OUTPUT);
   pinMode(motorPin2, OUTPUT);
   pinMode(enablePin, OUTPUT);
-  // testing
+
   Serial.print("Testing System...");
  }
 void loop(){ 
   printTime();
   delay(1000);
   
+  //Jika waktu beri makan=RTC sistem aktif
  if (feedHour==hour && feedMinute==minute && feedSecond==second || feedHour+i==hour && feedMinute==minute && feedSecond==second) {
       servo1.write(0);//move servo to that angle
       analogWrite(enablePin, 255);
@@ -101,6 +102,7 @@ void readTime() {
   year = bcdToDec(Wire.read());
   
 }
+//waktu pada RTC (ganti sesuai waktu asli)
 void changeTime() {
 
   Wire.beginTransmission(I2C_ADDRESS);
