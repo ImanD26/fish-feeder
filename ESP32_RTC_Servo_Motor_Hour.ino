@@ -18,12 +18,7 @@ byte weekday;
 byte monthday;
 byte month;
 byte year;
-byte i=0;
 
-// waktu untuk memberi makan
-byte feedHour = 2;
-byte feedMinute = 0;
-byte feedSecond = 0;
 
 int motorPin1 = 4; 
 int motorPin2 = 2; 
@@ -45,18 +40,16 @@ void loop(){
   printTime();
   delay(1000);
   
-  //Jika waktu beri makan=RTC sistem aktif
- if (feedHour==hour && feedMinute==minute && feedSecond==second || feedHour+i==hour && feedMinute==minute && feedSecond==second) {
+  //Feeder akan aktif tiap jam, timer mulai sebelum jam 02:00 dan aktif pada jam 02:00 dst
+ if (minute==0 && second==0) {
       servo1.write(0);//move servo to that angle
       analogWrite(enablePin, 255);
       digitalWrite(motorPin1, HIGH);
       digitalWrite(motorPin2, LOW);
-      delay(1000);
-      i++;
+      delay(500);
+
   }
- if(i==23){
-  i=0;
- }
+
  else {
       servo1.write(90);//move servo to that angle  
       analogWrite(enablePin, 0);
