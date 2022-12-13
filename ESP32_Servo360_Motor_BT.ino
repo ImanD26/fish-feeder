@@ -34,7 +34,7 @@ void setup() {
   }
 
 void loop() {
-
+//read input BT
   if (Serial.available()) {
     SerialBT.write(Serial.read());
   
@@ -44,7 +44,7 @@ void loop() {
     inData += receivedChar;    
         if (receivedChar == '\n')
         {    
-    
+    //int untuk mengatur input ON/OFF (nama bisa diganti)
     servo1Angle = inData.toInt() ;//convert it to integer  
     
     if(servo1Angle == 0)
