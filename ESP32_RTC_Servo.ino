@@ -1,4 +1,4 @@
-#include <Wire.h>
+#include <Wire.h> //tes menggerakan servo dengan rtc
 #include <ESP32Servo.h>
 #define servoPin 19
 Servo servo;
@@ -15,7 +15,7 @@ byte monthday;
 byte month;
 byte year;
 
-byte feedHour = 13;
+byte feedHour = 13; //waktu beri makan
 byte feedMinute = 30;
 byte feedSecond = 59;
 
@@ -80,14 +80,14 @@ void readTime() {
 }
 void changeTime() {
 
-  Wire.beginTransmission(I2C_ADDRESS);
+  Wire.beginTransmission(I2C_ADDRESS); //waktu sekarang
   Wire.write(byte(0));
   Wire.write(decToBcd(55)); // second
   Wire.write(decToBcd(30)); // minute
   Wire.write(decToBcd(13)); // hour
   Wire.write(decToBcd(5));  // weekday
-  Wire.write(decToBcd(25)); // date
-  Wire.write(decToBcd(8));  // month
+  Wire.write(decToBcd(1)); // date
+  Wire.write(decToBcd(1));  // month
   Wire.write(decToBcd(22)); // year
   Wire.write(byte(0));
   Wire.endTransmission();
