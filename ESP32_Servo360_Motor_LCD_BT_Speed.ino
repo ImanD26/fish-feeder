@@ -1,4 +1,4 @@
-//tes ubah kecepatan motor melalui esp32 bluetooth
+//tes ubah kecepatan motor melalui esp32 bluetooth & tes display speed
 #include <Servo_ESP32.h>
 #include <LiquidCrystal_I2C.h>
 
