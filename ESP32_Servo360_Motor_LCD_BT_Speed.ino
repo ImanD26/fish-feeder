@@ -35,7 +35,7 @@ void setup() {
   lcd.backlight();
   
   Serial.begin(115200);
-  SerialBT.begin("ESP32_Servo360_Motor_Speed"); //Bluetooth device name
+  SerialBT.begin("ESP32_Servo360_Motor_LCD"); //Bluetooth device name
   Serial.println("The device started, now you can pair it with bluetooth!");
 
 
