@@ -1,17 +1,16 @@
 //write dari serial monitor ke LCD
-#include <LiquidCrystal_I2C.h>
-int lcdColumns = 16;
-int lcdRows = 2;
-LiquidCrystal_I2C lcd(0x27, lcdColumns, lcdRows);  
+#include <LiquidCrystal.h>
+ 
+// initialize the library with the numbers of the interface pins
+LiquidCrystal lcd(19, 23, 18, 17, 16, 15);
 int motorSpeed; //int untuk mengatur kecepatan & on/off
 
 void setup() {
-  // put your setup code here, to run once:
-  lcd.init();                    
-  lcd.backlight();
+
+  lcd.begin(16, 2);
 
   Serial.begin(115200);
-  Serial.println("Hello, ESP32!");
+  Serial.println("ESP32_LCD");
 }
 
 void loop() {
@@ -21,7 +20,6 @@ void loop() {
     Serial.println(motorSpeed);
   }
 
-    
     if(motorSpeed == 1) //ON
     {
       lcd.clear();
